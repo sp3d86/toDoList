@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from './todo-data.service';
 import { Todo } from './todo';
+import { AmplifyService } from 'aws-amplify-angular';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ export class AppComponent implements OnInit {
   todos: Todo[] = [];
 
   constructor(
-    private todoDataService: TodoDataService
+    private todoDataService: TodoDataService,
+    private amplifyService: AmplifyService
   ) {
   }
 

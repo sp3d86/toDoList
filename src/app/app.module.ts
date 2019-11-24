@@ -13,6 +13,7 @@ import { ApiService } from './api.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule, MatButtonModule} from '@angular/material'
 import { ToolBarComponent } from './toolbar/toolbar.component';
+import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
 
 @NgModule({
   declarations: [
@@ -29,9 +30,10 @@ import { ToolBarComponent } from './toolbar/toolbar.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    AmplifyAngularModule
   ],
-  providers: [TodoDataService, ApiService],
+  providers: [TodoDataService, ApiService, AmplifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
