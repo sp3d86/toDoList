@@ -15,5 +15,23 @@
                 "todolist9e555528": {}
             }
         }
+    },
+    "tdl": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-todolist-tdl-01255-authRole",
+            "UnauthRoleArn": "arn:aws:iam::859966189561:role/amplify-todolist-tdl-01255-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::859966189561:role/amplify-todolist-tdl-01255-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "amplify-todolist-tdl-01255-deployment",
+            "UnauthRoleName": "amplify-todolist-tdl-01255-unauthRole",
+            "StackName": "amplify-todolist-tdl-01255",
+            "StackId": "arn:aws:cloudformation:eu-central-1:859966189561:stack/amplify-todolist-tdl-01255/2eb7fac0-0eff-11ea-95e0-060639d1b7d6"
+        },
+        "categories": {
+            "auth": {
+                "todolist9e555528": {},
+                "userPoolGroups": {}
+            }
+        }
     }
 }

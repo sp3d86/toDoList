@@ -45,6 +45,9 @@
         ]
     },
     "useDefault": "default",
-    "userPoolGroupList": [],
+    "userPoolGroupList": [
+        "users",
+        "qTodoList"
+    ],
     "dependsOn": []
 }
