@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Todo } from './todo';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
@@ -12,16 +13,13 @@ const API_URL = environment.apiUrl;
 @Injectable()
 export class ApiService {
 
-  constructor(
-    private http: Http
-  ) {
-  }
+  constructor(private http: HttpClient) {}
 
   public getAllTodos(): Observable<Todo[]> {
     return this.http
       .get(API_URL + '/todos')
       .map(response => {
-        const todos = response.json();
+        const todos = response['todos'];
         return todos.map((todo) => new Todo(todo));
       })
       .catch(this.handleError);
@@ -31,7 +29,7 @@ export class ApiService {
     return this.http
       .post(API_URL + '/todos', todo)
       .map(response => {
-        return new Todo(response.json());
+        return new Todo(response['todos']);
       })
       .catch(this.handleError);
   }
@@ -40,7 +38,7 @@ export class ApiService {
     return this.http
       .get(API_URL + '/todos/' + todoId)
       .map(response => {
-        return new Todo(response.json());
+        return new Todo(response['todos']);
       })
       .catch(this.handleError);
   }
@@ -49,7 +47,7 @@ export class ApiService {
     return this.http
       .put(API_URL + '/todos/' + todo.id, todo)
       .map(response => {
-        return new Todo(response.json());
+        return new Todo(response['todos']);
       })
       .catch(this.handleError);
   }
