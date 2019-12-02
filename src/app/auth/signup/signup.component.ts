@@ -15,6 +15,7 @@ export class SignUpComponent {
   enteredValueLogin = '';
   enteredValuePassword = '';
   enteredValueEmail = '';
+  enteredValueConfirmPassword = '';
   
   isLoading = false;
   isConfirmPassword = false;
@@ -34,6 +35,7 @@ export class SignUpComponent {
         this.enteredValueLogin = '';
         this.enteredValuePassword = '';
         this.enteredValueEmail = '';
+        this.enteredValueConfirmPassword = '';
       });
   }
 
@@ -48,7 +50,6 @@ export class SignUpComponent {
     } else {
       this.authService.confirmSignUp(form.value.confirmPassword);
     }
-
     
     //form.reset();
   }

@@ -8,11 +8,13 @@ import { Auth } from 'aws-amplify';
 @Injectable({ providedIn: "root" })
 export class AuthService {
   private isAuthenticated = false;
-  private authUser: any;
-  private authStatusListener = new Subject<boolean>(); 'possible change to object with params'
   private changePassword = false;
   private authProblems = false;
   private confirmUser = false;
+
+  private authUser: any;
+  private authStatusListener = new Subject<boolean>(); 'possible change to object with params'
+  
 
   constructor(private amplifyService: AmplifyService, private router: Router) {
     this.amplifyService.authStateChange$
@@ -33,7 +35,7 @@ export class AuthService {
             
         }
 
-        console.log('aws-auth - ' + this.isAuthenticated + ' user: ' +this.authUser.username);
+        console.log('aws-auth - ' + this.isAuthenticated);
       });
   }
 

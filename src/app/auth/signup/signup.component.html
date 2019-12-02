@@ -4,7 +4,7 @@
             <input 
               matInput type="text" 
               name="login"
-              ngModel
+              [(ngModel)]="enteredValueLogin"
               required
               minlength="6"
               placeholder="Enter login"
@@ -15,7 +15,7 @@
             <input 
             matInput type="password" 
             name="password"
-            ngModel
+            [(ngModel)]="enteredValuePassword"
             required
             minlength="8"
             placeholder="Enter password"
@@ -26,7 +26,7 @@
             <input 
             matInput type="email" 
             name="email"
-            ngModel
+            [(ngModel)]="enteredValueEmail"
             required
             minlength="8"
             placeholder="Enter email"
@@ -37,12 +37,12 @@
             <input 
               matInput type="text" 
               name="confirmPassword"
-              ngModel
+              [(ngModel)]="enteredValueConfirmPassword"
               required
               minlength="6"
               placeholder="Enter code from Email"
-              #login="ngModel">
-              <mat-error *ngIf='login.invalid'>Enter code from Email</mat-error>
+              #confirmPassword="ngModel">
+              <mat-error *ngIf='confirmPassword.invalid'>Enter code from Email</mat-error>
           </mat-form-field>
           <button mat-raised-button color="accent" type="submit">Sign Up</button>
           <button mat-raised-button color="accent">Cancel</button>
