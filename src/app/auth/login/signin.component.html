@@ -1,0 +1,31 @@
+<mat-card>
+    <form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
+      <p *ngIf='isNotAuthorized'>Name or password wrong. Please try again!</p>  
+      <mat-form-field *ngIf='!changePassword'>
+            <input 
+              matInput type="text" 
+              name="login"
+              [(ngModel)]="enteredValueLogin"
+              required
+              minlength="4"
+              placeholder="Enter login"
+              #login="ngModel">
+              <mat-error *ngIf='login.invalid'>Enter login</mat-error>
+          </mat-form-field>
+          <p *ngIf='changePassword'>Please enter the new password</p>
+          <mat-form-field>
+            <input 
+            matInput type="password" 
+            name="password"
+            [(ngModel)]="enteredValuePassword"
+            required
+            minlength="8"
+            placeholder="Enter password"
+            #password="ngModel">
+            <mat-error *ngIf='password.invalid'>Enter password</mat-error>          
+          </mat-form-field>
+          <button mat-raised-button color="accent" type="submit">Login</button>
+          <button mat-raised-button color="accent">Cancel</button>
+    </form>
+  </mat-card>
+  

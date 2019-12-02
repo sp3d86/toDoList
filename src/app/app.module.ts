@@ -11,10 +11,24 @@ import { TodoDataService } from './todo-data.service';
 import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
 import { ApiService } from './api.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule, MatButtonModule} from '@angular/material'
 import { ToolBarComponent } from './toolbar/toolbar.component';
-import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
 
+import { AmplifyAngularModule, AmplifyService, AmplifyModules } from 'aws-amplify-angular';
+import Auth from '@aws-amplify/auth';
+import Interactions from '@aws-amplify/interactions';
+import Storage from '@aws-amplify/storage';
+
+import { AppRoutingModule } from './app-routing.module';
+import { SignInComponent } from './auth/login/signin.component';
+import { HomeComponent } from './home/home.component';
+import { SignUpComponent } from './auth/signup/signup.component';
+import {
+  MatInputModule,
+  MatCardModule,
+  MatButtonModule,
+  MatToolbarModule,
+  MatExpansionModule
+} from "@angular/material";
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,19 +36,36 @@ import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
     TodoListFooterComponent,
     TodoListHeaderComponent,
     TodoListItemComponent,
-    ToolBarComponent
+    ToolBarComponent,
+    SignInComponent,
+    HomeComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
+    MatInputModule,
+    MatCardModule,
     MatButtonModule,
-    AmplifyAngularModule
+    MatToolbarModule,
+    MatExpansionModule,
+    AmplifyAngularModule,
   ],
-  providers: [TodoDataService, ApiService, AmplifyService],
-  bootstrap: [AppComponent]
+  providers: [TodoDataService, ApiService, {
+    provide: AmplifyService,
+    useFactory:  () => {
+      return AmplifyModules({
+        Auth,
+        Storage,
+        Interactions
+      });
+    }
+  }],
+  bootstrap: [AppComponent],
+  entryComponents: []
 })
 export class AppModule {
 }

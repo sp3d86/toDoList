@@ -1,6 +1,16 @@
 <mat-toolbar color="primary">
+    <span class="user">User:</span>
+    <span>{{user}}</span>
     <span class="fill-remaining-space"></span>
-    <button mat-button>Register</button>
-    <button mat-button>SignIn</button>
-    <button mat-button>SignOut</button>
+    <ul>
+        <li>
+        <a mat-button routerLink="/signup" routerLinkActive ="mat-accent">Register</a>
+        </li>
+        <li>
+            <a mat-button routerLink="/login" routerLinkActive ="mat-accent" *ngIf="!userIsAuthenticated">SignIn</a>
+        </li>
+        <li>
+            <a mat-button routerLink="" *ngIf="userIsAuthenticated" (click)="onLogout()">SignOut</a>
+        </li>
+    </ul>
 </mat-toolbar>

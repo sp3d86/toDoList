@@ -7,8 +7,10 @@ import { Subject } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import { AWS } from '@aws-amplify/core';
 
 const API_URL = environment.apiUrl;
+
 
 @Injectable()
 export class ApiService {

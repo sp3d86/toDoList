@@ -1,0 +1,50 @@
+<mat-card>
+    <form (submit)="onLogin(signUpForm)" #signUpForm="ngForm">
+        <mat-form-field *ngIf='!isConfirmPassword'>
+            <input 
+              matInput type="text" 
+              name="login"
+              ngModel
+              required
+              minlength="6"
+              placeholder="Enter login"
+              #login="ngModel">
+              <mat-error *ngIf='login.invalid'>Enter login</mat-error>
+          </mat-form-field>
+          <mat-form-field *ngIf='!isConfirmPassword'>
+            <input 
+            matInput type="password" 
+            name="password"
+            ngModel
+            required
+            minlength="8"
+            placeholder="Enter password"
+            #password="ngModel">
+            <mat-error *ngIf='password.invalid'>Enter password</mat-error>          
+          </mat-form-field>
+          <mat-form-field *ngIf='!isConfirmPassword'>
+            <input 
+            matInput type="email" 
+            name="email"
+            ngModel
+            required
+            minlength="8"
+            placeholder="Enter email"
+            #password="ngModel">
+            <mat-error *ngIf='password.invalid'>Enter password</mat-error>          
+          </mat-form-field>
+          <mat-form-field *ngIf='isConfirmPassword'>
+            <input 
+              matInput type="text" 
+              name="confirmPassword"
+              ngModel
+              required
+              minlength="6"
+              placeholder="Enter code from Email"
+              #login="ngModel">
+              <mat-error *ngIf='login.invalid'>Enter code from Email</mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="accent" type="submit">Sign Up</button>
+          <button mat-raised-button color="accent">Cancel</button>
+    </form>
+  </mat-card>
